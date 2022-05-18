@@ -28,6 +28,7 @@ export class ViewOrderComponent implements OnInit {
         'User ID',
         'Product Price',
         'Quantity',
+        'Amount',
         'Delivery Address',
         'Recipent Name',
         'Actions',
@@ -37,6 +38,7 @@ export class ViewOrderComponent implements OnInit {
         'User ID',
         'Product Price',
         'Quantity',
+        'Amount',
         'Delivery Address',
         'Recipent Name',
         'Actions',
@@ -117,26 +119,5 @@ export class ViewOrderComponent implements OnInit {
       queryParamsHandling: 'merge',
     });
   }
-  saveAsCSV() {
-    if (this.dataTable.dataRows.length > 0) {
-      const items = [];
 
-      this.dataTable.dataRows.forEach((line) => {
-        const csvLine = {
-          [this.dataTable.headerRow[0]]: line.id,
-          [this.dataTable.headerRow[1]]: line.vehicle_brand,
-          [this.dataTable.headerRow[2]]: line.vehicle_name,
-          [this.dataTable.headerRow[3]]: line.colour,
-          [this.dataTable.headerRow[4]]: line.address2,
-          [this.dataTable.headerRow[7]]: line.number,
-        };
-        items.push(csvLine);
-        console.log(csvLine);
-      });
-
-      this.csvService.exportToCsv('Vehicle Data.csv', items);
-    } else {
-      this.notificationUtils.showInfoMessage('No Data Found.');
-    }
-  }
 }
