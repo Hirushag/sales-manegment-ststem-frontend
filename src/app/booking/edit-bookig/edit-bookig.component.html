@@ -1,0 +1,102 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="card">
+                    <form [formGroup]="bookingForm" (submit)="updateBooking()">
+                        <div class="card-header card-header-primary card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">add_box</i>
+                            </div>
+                            <h4 class="card-title">Edit Booking</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="text" matInput id="firstName" placeholder="First Name *"
+                                            formControlName="firstName">
+                                        <mat-error *ngIf="booking.firstName.errors?.required">
+                                            First name is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="text" matInput id="lastName" placeholder="Last Name *"
+                                            formControlName="lastName">
+                                        <mat-error *ngIf="booking.lastName.errors?.required">
+                                            Last name is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                                               
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="text" matInput id="contact" placeholder="Contact Number *"
+                                            formControlName="contact">
+                                        <mat-error *ngIf="booking.contact.errors?.required">
+                                            Contact number is <strong>required</strong>
+                                        </mat-error>
+                                        <mat-error *ngIf="booking.contact.errors?.minlength">
+                                            Contact number should be 10 digits
+                                        </mat-error>
+                                        <mat-error *ngIf="booking.contact.errors?.maxlength">
+                                            Contact number should be 10 digits
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                               
+
+                               
+                                 <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="datetime-local" matInput id="date" placeholder="Date" formControlName="date">
+                                        <mat-error *ngIf="booking.date.errors?.required">
+                                            City is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div> 
+                                
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="number" matInput id="person" placeholder="No of Person *"
+                                            formControlName="person">
+                                        <mat-error *ngIf="booking.person.errors?.required">
+                                            Email is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="text" matInput id="email" placeholder="Email *"
+                                            formControlName="email">
+                                        <mat-error *ngIf="booking.email.errors?.required">
+                                            Email is <strong>required</strong>
+                                        </mat-error>
+                                        <mat-error *ngIf="booking.email.errors?.email">
+                                            Please enter a valid Email Address
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <div class="form-check mr-auto">
+                            </div>
+                            <button mat-raised-button type="submit" [disabled]="bookingForm.invalid"
+                                class="btn btn-fill btn-success">Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</div>

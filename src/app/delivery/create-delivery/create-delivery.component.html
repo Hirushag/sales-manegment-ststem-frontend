@@ -1,0 +1,103 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="card">
+                    <form [formGroup]="deliveryForm" (submit)="createDelivery()">
+                        <div class="card-header card-header-primary card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">add_box</i>
+                            </div>
+                            <h4 class="card-title">Create Delivery</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="text" matInput id="rider_id" placeholder="Rider ID*"
+                                            formControlName="rider_id">
+                                        <mat-error *ngIf="delivery.rider_id.errors?.required">
+                                            Rider Id is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="text" matInput id="name" placeholder="Name *"
+                                            formControlName="name">
+                                        <mat-error *ngIf="delivery.name.errors?.required">
+                                            Name is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="text" matInput id="email" placeholder="Email *"
+                                            formControlName="email">
+                                        <mat-error *ngIf="delivery.email.errors?.required">
+                                            Email is <strong>required</strong>
+                                        </mat-error>
+                                        <mat-error *ngIf="delivery.email.errors?.email">
+                                            Please enter a valid email address
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="datetime-local" matInput id="delivery_date" placeholder="Delivery Date *"
+                                            formControlName="delivery_date">
+                                        <mat-error *ngIf="delivery.delivery_date.errors?.required">
+                                            Delivery Date  is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="text" matInput id="address1" placeholder="Address Line 1" formControlName="address1">
+                                        <mat-error *ngIf="delivery.address1.errors?.required">
+                                            Address Line 1 is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div> 
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="text" matInput id="address2" placeholder="Address Line 2" formControlName="address2">
+                                        <mat-error *ngIf="delivery.address2.errors?.required">
+                                            Address Line 2 is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div> 
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="text" matInput id="contact" placeholder="Contact Number *"
+                                            formControlName="contact">
+                                        <mat-error *ngIf="delivery.contact.errors?.required">
+                                            Contact number is <strong>required</strong>
+                                        </mat-error>
+                                        <mat-error *ngIf="delivery.contact.errors?.minlength">
+                                            Contact number should be 10 digits
+                                        </mat-error>
+                                        <mat-error *ngIf="delivery.contact.errors?.maxlength">
+                                            Contact number should be 10 digits
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <div class="form-check mr-auto">
+                            </div>
+                            <button mat-raised-button type="submit" [disabled]="deliveryForm.invalid"
+                                class="btn btn-fill btn-success">Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</div>
