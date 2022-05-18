@@ -7,7 +7,7 @@
                         <div class="card-icon">
                             <i class="material-icons">person</i>
                         </div>
-                        <h4 class="card-title">Vehicle Details</h4>
+                        <h4 class="card-title">Order Details</h4>
                     </div>
                     <div class="card-body">
                         <div class="toolbar"></div>
@@ -21,7 +21,8 @@
                                         <th>{{ dataTable.headerRow[2] }}</th>
                                         <th>{{ dataTable.footerRow[3] }}</th>
                                         <th>{{ dataTable.footerRow[4] }}</th>
-                                        <th>{{ dataTable.footerRow[5] }}</th>                                       
+                                        <th>{{ dataTable.footerRow[5] }}</th>   
+                                        <th>{{ dataTable.footerRow[6] }}</th>                                    
                                        
                                     </tr>
                                 </thead>
@@ -33,30 +34,30 @@
                                         <th>{{ dataTable.footerRow[3] }}</th>
                                         <th>{{ dataTable.footerRow[4] }}</th>
                                         <th>{{ dataTable.footerRow[5] }}</th>
+                                        <th>{{ dataTable.footerRow[6] }}</th>
                                                                                
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                     <tr *ngFor="let row of dataTable.dataRows">
-                                        <td>{{ row.id }}</td>
-                                        <td>{{ row.vehicle_brand }}</td>
-                                        <td>{{ row.vehicle_name }}</td>
-                                        <td>{{ row.colour }}</td>
-                                        <td>{{ row.number }}</td>
+                                        <td>{{ row.productId }}</td>
+                                        <td>{{ row.userId }}</td>
+                                        <td>{{ row.productPrice }}</td>
+                                        <td>{{ row.quantity }}</td>
+                                        <td>{{ row.deliveryAddress }}</td>
+                                        <td>{{ row.recipientName }}</td>
                                          <td class="text-center">
                                             <a class="btn btn-link btn-success btn-just-icon edit"><i
-                                                    class="material-icons"(click)="editVehicle(row.id)">edit</i></a>
+                                                    class="material-icons"(click)="editOrder(row.id)">edit</i></a>
                                             <a class="btn btn-link btn-danger btn-just-icon remove"
-                                             (click)="deleteVehicle(row.id)"><i class="material-icons">close</i></a>
+                                             (click)="deleteOrder(row.id)"><i class="material-icons">close</i></a>
                                         </td> 
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <button class="btn btn-success" (click)="saveAsCSV()">export report</button>
-                    </div>
+                    
                 </div>
             </div>
         </div>

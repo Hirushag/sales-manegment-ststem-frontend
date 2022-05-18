@@ -1,4 +1,4 @@
-import { VehicleService } from './../../services/vehicle.service';
+import { OrderService } from '../../services/order.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CsvDataService } from 'src/app/services/csv-data.service';
@@ -7,36 +7,38 @@ import { NotificationUtilsService } from 'src/app/utils/notification-utils.servi
 declare const $: any;
 
 @Component({
-  selector: 'app-view-vehicle',
-  templateUrl: './view-vehicle.component.html',
-  styleUrls: ['./view-vehicle.component.scss'],
+  selector: 'app-view-order',
+  templateUrl: './view-order.component.html',
+  styleUrls: ['./view-order.component.scss'],
 })
-export class ViewVehicleComponent implements OnInit {
+export class ViewOrderComponent implements OnInit {
   public dataTable: DeviceDataTable;
   constructor(
     private router: Router,
     private csvService: CsvDataService,
     private notificationUtils: NotificationUtilsService,
-    private vehicleService: VehicleService
+    private vehicleService: OrderService
   ) {}
 
   ngOnInit(): void {
-    this.getVehicles();
+    this.getOrders();
     this.dataTable = {
       headerRow: [
-        'Vehicle Id',
-        'Vehicle Brand',
-        'Vehicle Name',
-        'Colour',
-        'Number',
+        'Product ID',
+        'User ID',
+        'Product Price',
+        'Quantity',
+        'Delivery Address',
+        'Recipent Name',
         'Actions',
       ],
       footerRow: [
-        'Vehicle Id',
-        'Vehicle Brand',
-        'Vehicle Name',
-        'Colour',
-        'Number',
+        'Product ID',
+        'User ID',
+        'Product Price',
+        'Quantity',
+        'Delivery Address',
+        'Recipent Name',
         'Actions',
       ],
       dataRows: [],
@@ -64,9 +66,9 @@ export class ViewVehicleComponent implements OnInit {
       });
     });
   }
-  getVehicles() {
+  getOrders() {
     this.notificationUtils.showMainLoading();
-    this.vehicleService.getAllVehicles().subscribe(
+    this.vehicleService.getAllOrders().subscribe(
       (data) => {
         console.log(data);
         this.destroyDataTable();
@@ -80,17 +82,17 @@ export class ViewVehicleComponent implements OnInit {
       }
     );
   }
-  deleteVehicle(id) {
+  deleteOrder(id) {
     this.notificationUtils
-      .promptConfirmation('This will remove selected vehicle.')
+      .promptConfirmation('This will remove selected order.')
       .then(
         () => {
           this.notificationUtils.showMainLoading();
-          this.vehicleService.deleteVehicle(id).subscribe(
+          this.vehicleService.deleteOrder(id).subscribe(
             (data) => {
-              this.notificationUtils.showSuccessMessage('Vehicle deleted.');
+              this.notificationUtils.showSuccessMessage('Order deleted.');
               this.notificationUtils.hideMainLoading();
-              this.getVehicles();
+              this.getOrders();
             },
             (error) => {
               this.notificationUtils.showErrorMessage(error.message);
@@ -102,9 +104,9 @@ export class ViewVehicleComponent implements OnInit {
       );
   }
 
-  editVehicle(id) {
+  editOrder(id) {
     console.log(id);
-    this.navigateWithQuery('/vehicle/edit', id);
+    this.navigateWithQuery('/order/edit', id);
   }
 
   navigateWithQuery(path, id) {

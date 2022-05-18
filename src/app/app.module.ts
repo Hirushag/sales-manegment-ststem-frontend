@@ -1,6 +1,4 @@
-import { AddingfoodService } from 'src/app/services/addingfood.service';
-import { VehicleService } from 'src/app/services/vehicle.service';
-import { DeliveryService } from './services/delivery.service';
+import { OrderService } from 'src/app/services/order.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './material.module';
@@ -19,7 +17,6 @@ import { NavbarModule } from './shared/navbar/navbar.module';
 import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { NotificationUtilsService } from './utils/notification-utils.service';
 import { BlockUIModule } from 'ng-block-ui';
-import { BookingService } from './services/booking.service';
 import { CsvDataService } from './services/csv-data.service';
 import { MatInputModule } from '@angular/material/input';
 @NgModule({
@@ -42,11 +39,11 @@ import { MatInputModule } from '@angular/material/input';
     AuthService,
     MainApiService,
     NotificationUtilsService,
-    BookingService,
+
     CsvDataService,
-    DeliveryService,
-    VehicleService,
-    AddingfoodService,
+ 
+    OrderService,
+
   ],
   bootstrap: [AppComponent],
 })

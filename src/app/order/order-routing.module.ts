@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreateVehicleComponent } from './create-vehicle/create-vehicle.component';
-import { EditVehicleComponent } from './edit-vehicle/edit-vehicle.component';
-import { ViewVehicleComponent } from './view-vehicle/view-vehicle.component';
+import { CreateOrderComponent } from './create-order/create-order.component';
+import { EditOrderComponent } from './edit-order/edit-order.component';
+import { ViewOrderComponent } from './view-order/view-order.component';
 
 const routes: Routes = [
     {
@@ -10,15 +10,15 @@ const routes: Routes = [
       children: [
         {
           path: 'create',
-          component: CreateVehicleComponent,
+          component: CreateOrderComponent,
         },
         {
           path: 'view',
-          component: ViewVehicleComponent,
+          component: ViewOrderComponent,
         },
         {
           path: 'edit',
-          component: EditVehicleComponent,
+          component: EditOrderComponent,
         },
       ],
     },
@@ -28,5 +28,5 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
   })
-  export class VehicleRoutingModule {}
+  export class OrderRoutingModule {}
   

@@ -97,7 +97,7 @@ export class ViewSupplierComponent implements OnInit {
       queryParamsHandling: 'merge',
     });
   }
-  deleteStock(stock_id) {
+  deleteSupplier(stock_id) {
     this.notificationUtils
       .promptConfirmation('This will remove selected supplier.')
       .then(

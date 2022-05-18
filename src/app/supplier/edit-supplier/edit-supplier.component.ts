@@ -40,7 +40,7 @@ export class EditSupplierComponent implements OnInit {
     return this.supplierForm.controls;
   }
 
-  updateStock() {
+  updateSupplier() {
     this.notificationUtils.promptConfirmation().then(
       () => {
         this.notificationUtils.showMainLoading();

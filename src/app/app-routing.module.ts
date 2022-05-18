@@ -31,40 +31,16 @@ const routes: Routes = [
         loadChildren: () =>
           import('./user/user.module').then((m) => m.UserModule),
       },
+      
+    
+   
       {
-        path: 'booking',
+        path: 'order',
         loadChildren: () =>
-          import('./booking/booking.module').then((m) => m.BookingModule),
-      },
-      {
-        path: 'dashboard',
-        loadChildren: () =>
-          import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+          import('./order/order.module').then((m) => m.OrderModule),
       },
 
-      {
-        path: 'employee',
-        loadChildren: () =>
-          import('./employee/employee.module').then((m) => m.EmployeeModule),
-      },
-      {
-        path: 'delivery',
-        loadChildren: () =>
-          import('./delivery/delivery.module').then((m) => m.DeliveryModule),
-      },
-      {
-        path: 'vehicle',
-        loadChildren: () =>
-          import('./vehicle/vehicle.module').then((m) => m.VehicleModule),
-      },
-
-      {
-        path: 'addingfood',
-        loadChildren: () =>
-          import('./addingfood/addingfood.module').then(
-            (m) => m.AddingfoodModule
-          ),
-      },
+    
       {
         path: 'supplier',
         loadChildren: () =>
