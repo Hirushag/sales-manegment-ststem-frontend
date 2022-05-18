@@ -23,6 +23,6 @@ export class ProductService {
     return this.apiService.put('api/v1/product-service/api/v1/products/' + id, product);
   }
   getProducteById(id) {
-    return this.apiService.get('api/v1/product-service/api/v1/products', { id });
+    return this.apiService.get('api/v1/product-service/api/v1/product?id='+id );
   }
 }

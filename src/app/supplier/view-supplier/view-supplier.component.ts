@@ -1,4 +1,4 @@
-import { StockService } from 'src/app/services/stock.service';
+import { SupplierService } from 'src/app/services/supplier.service';
 import { Component, OnInit } from '@angular/core';
 import { DeviceDataTable } from 'src/app/shared/models/device.model';
 import { NotificationUtilsService } from 'src/app/utils/notification-utils.service';
@@ -7,41 +7,39 @@ import { CsvDataService } from 'src/app/services/csv-data.service';
 declare const $: any;
 
 @Component({
-  selector: 'app-view-stock',
-  templateUrl: './view-stock.component.html',
-  styleUrls: ['./view-stock.component.scss'],
+  selector: 'app-view-supplier',
+  templateUrl: './view-supplier.component.html',
+  styleUrls: ['./view-supplier.component.scss'],
 })
-export class ViewStockComponent implements OnInit {
+export class ViewSupplierComponent implements OnInit {
   public dataTable: DeviceDataTable;
 
   constructor(
     private router: Router,
     private csvService: CsvDataService,
     private notificationUtils: NotificationUtilsService,
-    private stockservice: StockService
+    private stockservice: SupplierService
   ) {}
 
   ngOnInit(): void {
     this.loadData();
     this.dataTable = {
       headerRow: [
-        'Stock Id',
-        'Category Type',
-        'Category Name',
-        'inStock',
-        'useStock',
-        'wasteStock',
-        'Date',
+        'Name',
+        'Company Name',
+        'Address',
+        'Phone',
+        'Email',
+        'Category',
         'Actions',
       ],
       footerRow: [
-        'Stock Id',
-        'Category Type',
-        'Category Name',
-        'inStock',
-        'useStock',
-        'wasteStock',
-        'Date',
+        'Name',
+        'Company Name',
+        'Address',
+        'Phone',
+        'Email',
+        'Category',
         'Actions',
       ],
       dataRows: [],
@@ -51,7 +49,7 @@ export class ViewStockComponent implements OnInit {
 
   loadData() {
     this.notificationUtils.showMainLoading();
-    this.stockservice.getAllStock().subscribe(
+    this.stockservice.getAllSuppliers().subscribe(
       (data) => {
         this.destroyDataTable();
         this.dataTable.dataRows = data;
@@ -85,32 +83,10 @@ export class ViewStockComponent implements OnInit {
     });
   }
 
-  saveAsCSV() {
-    console.log('working');
-    if (this.dataTable.dataRows.length > 0) {
-      const items = [];
 
-      this.dataTable.dataRows.forEach((line) => {
-        const csvLine = {
-          [this.dataTable.headerRow[0]]: line.stock_id,
-          [this.dataTable.headerRow[1]]: line.categoryType,
-          [this.dataTable.headerRow[2]]: line.categoryName,
-          [this.dataTable.headerRow[3]]: line.inStock,
-          [this.dataTable.headerRow[4]]: line.useStock,
-          [this.dataTable.headerRow[5]]: line.wasteStock,
-          [this.dataTable.headerRow[6]]: line.Date,
-        };
-        items.push(csvLine);
-      });
 
-      this.csvService.exportToCsv('Stock Data.csv', items);
-    } else {
-      this.notificationUtils.showInfoMessage('No Data Found.');
-    }
-  }
-
-  editStock(id) {
-    this.navigateWithQuery('/stock/edit', id);
+  editSupplier(id) {
+    this.navigateWithQuery('/supplier/edit', id);
   }
 
   navigateWithQuery(path, id) {
@@ -123,11 +99,11 @@ export class ViewStockComponent implements OnInit {
   }
   deleteStock(stock_id) {
     this.notificationUtils
-      .promptConfirmation('This will remove selected employee.')
+      .promptConfirmation('This will remove selected supplier.')
       .then(
         () => {
           this.notificationUtils.showMainLoading();
-          this.stockservice.deleteStock(stock_id).subscribe(
+          this.stockservice.deleteSupplier(stock_id).subscribe(
             (data) => {
               this.notificationUtils.showSuccessMessage('Stock deleted.');
               this.notificationUtils.hideMainLoading();

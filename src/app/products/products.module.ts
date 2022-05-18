@@ -6,7 +6,7 @@ import { CreateProductComponent } from './create-product/create-product.componen
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
-import { StockRoutingModule } from '../stock/stock-routing.module';
+import { SupplierRoutingModule } from '../supplier/supplierr-routing.module';
 import { EditProductComponent } from './edit-product/edit-product.component';
 
 
@@ -15,7 +15,7 @@ import { EditProductComponent } from './edit-product/edit-product.component';
   imports: [
     CommonModule,
     ProductsRoutingModule,
-    StockRoutingModule,
+    SupplierRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,

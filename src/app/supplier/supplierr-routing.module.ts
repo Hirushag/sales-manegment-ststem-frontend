@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreateStockComponent } from './create-stock/create-stock.component';
-import { EditStockComponent } from './edit-stock/edit-stock.component';
-import { ViewStockComponent } from './view-stock/view-stock.component';
+import {  CreateSupplierComponent } from './create-supplier/create-supplier.component';
+import { EditSupplierComponent } from './edit-supplier/edit-supplier.component';
+import { ViewSupplierComponent } from './view-supplier/view-supplier.component';
 
 
 const routes: Routes = [
@@ -12,16 +12,16 @@ const routes: Routes = [
         { path: '', redirectTo: 'view' },
         {
           path: 'view',
-          component: ViewStockComponent,
+          component: ViewSupplierComponent,
         },
         {
           path: 'create',
-          component: CreateStockComponent,
+          component: CreateSupplierComponent,
         },
         {
         
           path: 'edit',
-          component: EditStockComponent,
+          component: EditSupplierComponent,
         },
       ],
     },
@@ -30,4 +30,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
   })
-  export class StockRoutingModule {}
+  export class SupplierRoutingModule {}

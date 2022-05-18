@@ -49,6 +49,30 @@ export const ROUTES: RouteInfo[] = [
       { path: 'edit', title: 'Edit Products', ab: 'EP', active: false },
     ],
   },
+  {
+    path: '/supplier',
+    title: 'Supplier',
+    type: 'sub',
+    icontype: 'person',
+    collapse: 'supplier',
+    children: [
+      { path: 'view', title: 'View Supplier', ab: 'VS', active: true },
+      { path: 'create', title: 'Create Supplier', ab: 'CS', active: true },
+      { path: 'edit', title: 'Edit Supplier', ab: 'ES', active: false },
+    ],
+  },
+  {
+    path: '/order',
+    title: 'Orders',
+    type: 'sub',
+    icontype: 'person',
+    collapse: 'order',
+    children: [
+      { path: 'view', title: 'View Orders', ab: 'VO', active: true },
+      { path: 'create', title: 'Create Orders', ab: 'CO', active: true },
+      { path: 'edit', title: 'Edit Orders', ab: 'EO', active: false },
+    ],
+  },
 
   
 

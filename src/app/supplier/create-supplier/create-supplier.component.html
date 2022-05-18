@@ -1,0 +1,94 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="card">
+                    <form [formGroup]="supplierForm" (submit)="createSupplier()">
+                        <div class="card-header card-header-primary card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">add_box</i>
+                            </div>
+                            <h4 class="card-title">Create Supplier</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="text" matInput id="name" placeholder="name *"
+                                            formControlName="name">
+                                        <mat-error *ngIf="supplier.name.errors?.required">
+                                            name Type is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="text" matInput id="companyName" placeholder="company Name *"
+                                            formControlName="companyName">
+                                        <mat-error *ngIf="supplier.companyName.errors?.required">
+                                            companyName is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="text" matInput id="address" placeholder=" address *"
+                                            formControlName="address">
+                                        <mat-error *ngIf="supplier.address.errors?.required">
+                                            address is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div> 
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="text" matInput id="phone" placeholder=" phone *"
+                                            formControlName="phone">
+                                        <mat-error *ngIf="supplier.phone.errors?.required">
+                                            phone number is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div> 
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="email" matInput id="email" placeholder=" email *"
+                                            formControlName="email">
+                                        <mat-error *ngIf="supplier.email.errors?.required">
+                                            email is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class=" col-md-12 ">
+                                    <mat-form-field class="example-full-width has-label">
+                                        <input type="text" matInput id="category" placeholder=" category *"
+                                            formControlName="category">
+                                        <mat-error *ngIf="supplier.category.errors?.required">
+                                            category is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                
+                             
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <div class="form-check mr-auto">
+                            </div>
+                            <button mat-raised-button type="submit" [disabled]="supplierForm.invalid"
+                                class="btn btn-fill btn-success">Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</div>
+
+
+
+

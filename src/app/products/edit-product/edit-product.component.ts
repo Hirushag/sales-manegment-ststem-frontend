@@ -35,6 +35,8 @@ export class EditProductComponent implements OnInit {
       quantity: [null],
      
     });
+
+    this.loadUserData()
   }
   get product() {
     return this.ProductForm.controls;
@@ -46,11 +48,11 @@ export class EditProductComponent implements OnInit {
       (data) => {
         this.notificationUtils.hideMainLoading();
         this.ProductForm.patchValue({
-          name: data[0].name,
-          description: data[0].description,
-          category: data[0].category,
-          price: data[0].price,
-          quantity: data[0].quantity,
+          name: data.name,
+          description: data.description,
+          category: data.category,
+          price: data.price,
+          quantity: data.quantity,
         });
       },
       (error) => {
